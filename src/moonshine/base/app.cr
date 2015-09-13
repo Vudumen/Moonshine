@@ -1,4 +1,5 @@
 include Moonshine::Http
+include Moonshine::Http
 include Moonshine::Middleware
 
 module Moonshine::Base
@@ -23,10 +24,10 @@ module Moonshine::Base
       self # allow chaining
     end
 
-    def run(port = 8000)
+    def run(host = "0.0.0.0", port = 8000)
       # Run the webapp on the specified port
-      puts "Moonshine serving at port #{port}..."
-      server = HTTP::Server.new(port, self)
+      puts "Moonshine serving at port #{host}:#{port}..."
+      server = Moonshine::Http::Server.new(host, port, self)
       server.listen()
     end
 

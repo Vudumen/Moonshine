@@ -6,6 +6,7 @@ require "time"
 
 require "./request"
 require "./response"
+require "./server"
 
 module Moonshine
   module Http
